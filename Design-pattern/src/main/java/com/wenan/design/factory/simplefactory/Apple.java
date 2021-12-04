@@ -1,7 +1,7 @@
 package com.wenan.design.factory.simplefactory;
 
 /**
- * 描述：    Apple
+ * 描述：
  */
 public class Apple implements Product {
     @Override
