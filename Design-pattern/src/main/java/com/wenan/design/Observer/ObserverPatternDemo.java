@@ -30,26 +30,29 @@ interface Observer {
 public class ObserverPatternDemo {
 
     public static void main(String[] args) {
-        // 创建被观察者对象
-        RealSubject realSubject = new RealSubject();
+        // 创建罗某账户多项
+        RealSubject MrLuo = new RealSubject();
 
-        // 创建观察者对象
-        RealObserver lucy = new RealObserver("Lucy");
-        RealObserver jhon = new RealObserver("Jhon");
-        RealObserver Konna = new RealObserver("Konna");
+        // 创建银行对象
+        RealObserver bankA = new RealObserver("bankA");
+        RealObserver bankB = new RealObserver("bankB");
+        RealObserver bankc = new RealObserver("bankc");
 
-        // 添加观察者(订阅）
-        realSubject.add(lucy);
-        realSubject.add(jhon);
-        realSubject.add(Konna);
-        // 更新消息
-        realSubject.notifyObserver();
+        // 添加欠款银行(订阅）
+        MrLuo.add(bankA);
+        MrLuo.add(bankB);
+        MrLuo.add(bankc);
 
-        System.out.println("----移除Konna---");
+        // 罗某账户工资到账，对欠款的都发出提醒
+        MrLuo.notifyObserver();
+
+        System.out.println("----银行C的钱还完了---");
 
         // 移除观察者（取消订阅）
-        realSubject.remove(Konna);
-        realSubject.notifyObserver();
+        MrLuo.remove(bankc);
+
+        // 罗某账户工资到账，对欠款的都发出提醒
+        MrLuo.notifyObserver();
     }
 
 
@@ -92,7 +95,7 @@ class RealObserver implements Observer {
 
     @Override
     public void getMessage() {
-        System.out.println(name + "收到了消息");
+        System.out.println(name + "知道了罗某账户有资金到账");
     }
 }
 
