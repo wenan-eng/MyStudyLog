@@ -24,7 +24,7 @@ interface Observer {
     void getMessage();
 }
 
-/**
+    /**
  * 描述：    ObserverPatternDemo
  */
 public class ObserverPatternDemo {
