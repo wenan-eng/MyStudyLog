@@ -6,6 +6,8 @@ package com.wenan.design.strategy;
 public class StrategyDemo {
     public static void main(String[] args) {
         int way = 500;
+
+        System.out.println("---------用if else语句判断--------");
         if (way > 1000) {
             System.out.println("坐飞机");
         } else if (1000 > way && way > 500) {
@@ -14,7 +16,7 @@ public class StrategyDemo {
             System.out.println("坐汽车");
         }
 
-        System.out.println("---------下面是策略模式实现--------");
+        System.out.println("---------策略模式实现--------");
         context context = new context(way);
         context.getStrategyMethod();
     }
@@ -61,26 +63,6 @@ class Car implements Strategy {
     }
 }
 
-/**
- * 策略工厂
- */
-class StrategyFactory {
-    private static StrategyFactory factory = new StrategyFactory();
-
-    public static StrategyFactory getInstance(){
-        return factory;
-    }
-
-    public Strategy getStrategyType(Integer way) {
-        if (way > 1000) {
-            return new Plane();
-        } else if (1000 > way && way > 500) {
-            return new Train();
-        }else {
-            return new Car();
-        }
-    }
-}
 
 /**
  * 具体环境
@@ -89,7 +71,13 @@ class context {
     private Strategy strategy;
 
     public  context(Integer way) {
-        this.strategy = StrategyFactory.getInstance().getStrategyType(way);
+        if (way > 1000) {
+            this.strategy = new Plane();
+        } else if (1000 > way && way > 500) {
+            this.strategy = new Train();
+        }else {
+            this.strategy = new Car();
+        }
     }
 
 
