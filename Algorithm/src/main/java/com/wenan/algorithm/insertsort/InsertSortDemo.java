@@ -47,8 +47,8 @@ class InsertSort {
     }
 
     public void sortList() {
-        for (int i = 0; i < list.length; i++) {
-            System.out.println(list[i]);
+        for (int value : list) {
+            System.out.println(value);
         }
     }
 }
