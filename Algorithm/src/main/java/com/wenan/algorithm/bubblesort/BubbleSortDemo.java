@@ -22,7 +22,9 @@ public class BubbleSortDemo {
 class BubbleSort {
 
     public static int[] sort(int[] numbers) {
+        // 遍历数组的所有元素，每一个元素都要和他相邻的元素进行比较
         for (int i = 0; i < numbers.length-1; i++) {
+            // 从第一个元素开始往后比较
             for (int m = i; m < numbers.length-1; m++) {
                 if (numbers[m] > numbers[m + 1]) {
                     int stable = numbers[m];
