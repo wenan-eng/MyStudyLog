@@ -54,13 +54,13 @@ public class UserController {
             subject.login(token);
             User user = (User) subject.getPrincipal();
             subject.getSession().setAttribute("user",user);
-            return "index";
+            return "登录成功";
         } catch (UnknownAccountException e) {
             model.addAttribute("msg","用户名错误");
-            return "login";
+            return "用户名错误";
         } catch (IncorrectCredentialsException e) {
             model.addAttribute("msg", "密码错误");
-            return "login";
+            return "密码错误";
         }
     }
 
@@ -69,7 +69,7 @@ public class UserController {
     public String logout(){
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
-        return "login";
+        return "注销成功，请重新登录";
     }
 
     @ApiOperation(value = "未授权页面")

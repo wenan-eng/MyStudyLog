@@ -1,0 +1,24 @@
+# 服务端口配置
+server:
+  port: 7008
+
+
+# 数据库配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/wenan_test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: root
+    password: zhuxiuqian2020
+    druid:
+      max-active: 10
+      max-wait: 30000
+  # security配置用户名和密码
+
+
+# Mybatis-plus配置
+mybatis-plus:
+  mapper-locations:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
