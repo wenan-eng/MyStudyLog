@@ -23,7 +23,7 @@ public class SyncProducer {
         producer.start();
         for (int i = 0; i < 100; i++) {
             // 创建消息，并指定Topic，Tag和消息体
-            Message msg = new Message("TopicTestSync" /* Topic */,
+            Message msg = new Message("OneWayTopic" /* Topic */,
                     "TagA" /* Tag */,
                     ("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET) /* Message body */
             );
